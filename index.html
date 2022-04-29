@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instrument Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="store-app">
+    <div style="text-align: right">
+        <a v-on:click="clearCart">Cart: {{cart.length}}</a>
+    </div>
+    <div v-if="instruments.length == 0">
+        Store is empty.
+    </div>
+    <div v-for="instrument in instruments">
+        <div class="instrument" v-bind:class="instrument.brand"  >
+            <!--img goes here-->
+            <img v-on:click="popUp(instrument)" v-bind:src="instrument.name + '.jpg'" />
+
+            <!--img goes here-->
+            <div class="name">{{instrument.name}}</div>
+
+
+            <button v-on:click="addToCart(instrument)">Add to Cart</button>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
